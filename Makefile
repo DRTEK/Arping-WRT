@@ -6,11 +6,9 @@
 #
 
 include $(TOPDIR)/rules.mk
-
 PKG_NAME:=arping
-PKG_VERSION:=2015-05-24
+PKG_VERSION:=2015-05-25
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
-
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=git://github.com/DRTEK/arping.git
@@ -27,11 +25,8 @@ define Package/arping
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
   TITLE:=Arping by MAC / TOOLS
-  DEPENDS:=+libubox
 endef
-
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
-
 define Package/arping/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/arping $(1)/usr/sbin/arping
